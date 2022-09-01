@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+	<v:String x:Key="Shortname">Name</v:String>
+	<v:String x:Key="Longname">Full name </v:String>
+	<v:String x:Key="Description">Description</v:String>
+	<v:String x:Key="Price">Price</v:String>
+	<v:String x:Key="Count">Count</v:String>
+	<v:String x:Key="PathToImage">Image</v:String>
+	<v:String x:Key="View">View</v:String>
+	<v:String x:Key="Change">Change</v:String>
+	<v:String x:Key="Language">Language</v:String>
+	<v:String x:Key="Save">Save</v:String>
+	<v:String x:Key="Load">Load</v:String>
+	<v:String x:Key="ChangePicture">Change Picture</v:String>
+	<v:String x:Key="ChangeDescription">Change Description</v:String>
+	<v:String x:Key="Delete">Delete</v:String>
+</ResourceDictionary>

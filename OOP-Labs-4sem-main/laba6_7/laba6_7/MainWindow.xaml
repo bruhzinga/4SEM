@@ -1,0 +1,209 @@
+﻿<Window x:Class="laba6_7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laba6_7"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="MyAPP" Height="900" Width="1000" Icon="/ICON.png"
+        Cursor="Cross">
+    <Window.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="2 badr"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="0,10,25,0"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer>
+        <StackPanel>
+
+            <ToolBar  VerticalAlignment="Top">
+                <Menu  FontSize="20">
+                    <MenuItem x:Name="menuLanguage" Header="{DynamicResource Language}" />
+                </Menu>
+            </ToolBar>
+            <TabControl>
+                <TabItem Header="{DynamicResource View}" FontSize="20">
+                    <TabItem.Content>
+                        <DataGrid ColumnWidth="*" IsReadOnly="True"
+                              ItemsSource="{Binding }" x:Name="Data">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn  Binding="{Binding Shortname}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource Shortname}">
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn  Binding="{Binding LongName}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource Longname}">
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Binding="{Binding Count}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource Count}">
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn  Binding="{Binding Price}">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource Price}">
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.Header>
+                                        <TextBlock Text="{DynamicResource PathToImage}">
+                                        </TextBlock>
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Width="100" Height="100"  Source="{Binding PathToImage}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                            <DataGrid.RowDetailsTemplate>
+
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" MaxWidth="800"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="{DynamicResource Change}" FontSize="20">
+                    <TabItem.Content>
+                        <Grid DataContext="{Binding ElementName=MainWindow}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <DataGrid  IsReadOnly="False" ColumnWidth="*"
+
+                         ItemsSource="{Binding }" x:Name="Data2">
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  Binding="{Binding Shortname}">
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource Shortname}">
+                                            </TextBlock>
+                                        </DataGridTextColumn.Header>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn  Binding="{Binding LongName}">
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource Longname}">
+                                            </TextBlock>
+                                        </DataGridTextColumn.Header>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Binding="{Binding Count}">
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource Count}">
+                                            </TextBlock>
+                                        </DataGridTextColumn.Header>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn  Binding="{Binding Price}">
+                                        <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource Price}">
+                                            </TextBlock>
+                                        </DataGridTextColumn.Header>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="VerticalAlignment" Value="Center" />
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn>
+                                        <DataGridTemplateColumn.Header>
+                                            <TextBlock Text="{DynamicResource PathToImage}">
+                                            </TextBlock>
+                                        </DataGridTemplateColumn.Header>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Image Width="100" Height="100"  Source="{Binding PathToImage}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                                <DataGrid.RowDetailsTemplate>
+
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow" MaxWidth="700"></TextBlock>
+                                    </DataTemplate>
+                                </DataGrid.RowDetailsTemplate>
+                            </DataGrid>
+                            <GridSplitter Grid.Column="1"  Grid.Row="0" ShowsPreview="False" Width="3"
+                                  HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+                            <Grid Grid.Column="2">
+                                <StackPanel>
+                                    <Button Content="{DynamicResource Save}" Padding="10" Click="SaveToJsons">
+                                    </Button>
+                                    <Button Content="{DynamicResource Load}" Padding="10"  Click="LoadJson"></Button>
+                                    <Button Content="{DynamicResource ChangePicture}" Padding="10" Click="ChangePicture" ></Button>
+
+                                    <StackPanel>
+                                        <Button Content="{DynamicResource ChangeDescription}" Padding="10" Click="ChangeDescription"></Button>
+                                        <TextBox Padding="10" x:Name ="NewDescrptionBox" MaxWidth="300"  TextWrapping="Wrap" />
+                                    </StackPanel>
+                                    <Button Content="{DynamicResource Delete}" Padding="10" Click="DeleteItem"></Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
